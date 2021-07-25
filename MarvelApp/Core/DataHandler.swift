@@ -7,7 +7,10 @@
 
 import Foundation
 
-func allCharacters() {
+func allCharacters(success: @escaping(_ characters: [Character]) -> ()) {
+    
+    var characters: [Character] = []
+    
     let task = URLSession.shared.dataTask(with: getURL()) { data, response, error in
         if let error = error {
             fatalError("Error: \(error.localizedDescription)")
@@ -18,7 +21,6 @@ func allCharacters() {
         guard let data = data else {
             fatalError("Error: missing response data")
         }
-     
         let decoder = JSONDecoder()
         do {
             
@@ -26,8 +28,10 @@ func allCharacters() {
             let x = try decoder.decode(CharacterBaseDate.self, from: JSONSerialization.data(withJSONObject: jsonobj, options: []))
             if let r = x.data?.results {
                 for c in r {
-                    print(c.name)
+                    print("\(c.name ?? "- - - -")")
                 }
+                characters = r
+                success(characters)
             }
         }
         catch {
@@ -35,4 +39,7 @@ func allCharacters() {
         }
     }
     task.resume()
+    
+
+    
 }

@@ -16,27 +16,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenido al universo de Marvel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyF-72-hlA">
-                                <rect key="frame" x="32" y="436.5" width="350.5" height="23"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
-                                <color key="textColor" red="0.99607843139999996" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ydd-Hg-NZK">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="AFF-MS-61J">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
-                            <constraint firstItem="WyF-72-hlA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NAk-k2-0JQ"/>
-                            <constraint firstItem="WyF-72-hlA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="a1W-9G-xht"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ydd-Hg-NZK" secondAttribute="trailing" id="26s-29-1jN"/>
+                            <constraint firstItem="Ydd-Hg-NZK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EjO-wp-PzX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ydd-Hg-NZK" secondAttribute="bottom" id="MSc-xD-VOE"/>
+                            <constraint firstItem="Ydd-Hg-NZK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TBn-nA-eOC"/>
+                            <constraint firstItem="AFF-MS-61J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="awI-YH-gPm"/>
+                            <constraint firstItem="AFF-MS-61J" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fw2-nh-123"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="AFF-MS-61J" id="YnE-PR-XYK"/>
+                        <outlet property="characterTableView" destination="Ydd-Hg-NZK" id="mtM-NW-JV7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="131"/>
+            <point key="canvasLocation" x="299" y="177"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
