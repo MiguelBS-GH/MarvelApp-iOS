@@ -26,6 +26,8 @@ class ViewController: UIViewController {
         characterTableView.dataSource = self
         characterTableView.delegate = self
         
+        //registerTableViewCells()
+        
         activityIndicator.startAnimating()
         recuperarDatos()
     }
@@ -44,6 +46,11 @@ class ViewController: UIViewController {
        
     }
     
+    func registerTableViewCells() {
+        let cell = UINib(nibName: "CharacterTableViewCell", bundle: nil)
+        self.characterTableView.register(cell, forCellReuseIdentifier: "CharacterTableViewCell")
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource {
@@ -53,15 +60,20 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "mycell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as! CharacterTableViewCell
         
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "mycell")
-            cell?.textLabel?.font = UIFont.systemFont(ofSize: 20)
+        let character = characters[indexPath.row]
+        cell.characterNameLabel.text = character.name
+        if let image = character.thumbnail?.getImage() {
+            print("dentro")
+            cell.characterImageView.load(url: image)
         }
         
-        cell?.textLabel?.text = characters[indexPath.row].name
-        return cell!
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(120)
     }
     
     
@@ -69,6 +81,21 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async {
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.image = image
+                    }
+                }
+            }
+        }
+        
+    }
 }
 
 

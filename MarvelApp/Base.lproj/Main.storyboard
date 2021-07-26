@@ -18,7 +18,46 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ydd-Hg-NZK">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" red="0.99607843139999996" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CharacterCell" rowHeight="120" id="kr5-cf-uId" customClass="CharacterTableViewCell" customModule="MarvelApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kr5-cf-uId" id="nMA-2x-Klh">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MarvelHeroesImage" translatesAutoresizingMaskIntoConstraints="NO" id="zqg-Jy-kYa">
+                                                    <rect key="frame" x="10" y="10" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="hpI-y0-Eh8"/>
+                                                        <constraint firstAttribute="width" constant="100" id="nPk-9S-a5s"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7k-Bm-dCs">
+                                                    <rect key="frame" x="120" y="41" width="264" height="38.5"/>
+                                                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="M7k-Bm-dCs" firstAttribute="centerY" secondItem="nMA-2x-Klh" secondAttribute="centerY" id="4yu-xl-jdI"/>
+                                                <constraint firstItem="M7k-Bm-dCs" firstAttribute="leading" secondItem="zqg-Jy-kYa" secondAttribute="trailing" constant="10" id="ClE-c4-iGf"/>
+                                                <constraint firstItem="M7k-Bm-dCs" firstAttribute="leading" secondItem="zqg-Jy-kYa" secondAttribute="trailing" constant="10" id="NA6-DY-vn5"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="M7k-Bm-dCs" secondAttribute="trailing" constant="10" id="fZV-mh-9Y5"/>
+                                                <constraint firstItem="zqg-Jy-kYa" firstAttribute="centerY" secondItem="nMA-2x-Klh" secondAttribute="centerY" id="qXV-Uh-nXO"/>
+                                                <constraint firstItem="zqg-Jy-kYa" firstAttribute="leading" secondItem="nMA-2x-Klh" secondAttribute="leading" constant="10" id="rZ8-Xw-HVx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="characterImageView" destination="zqg-Jy-kYa" id="l14-Nj-sAg"/>
+                                            <outlet property="characterNameLabel" destination="M7k-Bm-dCs" id="9ZL-EG-5yy"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="AFF-MS-61J">
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
@@ -42,13 +81,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="299" y="177"/>
+            <point key="canvasLocation" x="298.55072463768118" y="176.78571428571428"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="MarvelHeroesImage" width="1153" height="1004"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -21,6 +21,7 @@
 		12BE02C626AC882E00A97613 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BE02C526AC882E00A97613 /* DataHandler.swift */; };
 		12BE02C826AC887100A97613 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BE02C726AC887100A97613 /* Util.swift */; };
 		12BE02CC26AC8D8A00A97613 /* CharacterBaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BE02CB26AC8D8A00A97613 /* CharacterBaseDate.swift */; };
+		12BE02D326ADD43E00A97613 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BE02D226ADD43E00A97613 /* CharacterTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		12BE02C526AC882E00A97613 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		12BE02C726AC887100A97613 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		12BE02CB26AC8D8A00A97613 /* CharacterBaseDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBaseDate.swift; sourceTree = "<group>"; };
+		12BE02D226ADD43E00A97613 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		12BE02A326AB0D6200A97613 /* MarvelApp */ = {
 			isa = PBXGroup;
 			children = (
+				12BE02D126ADCBE400A97613 /* CustomViews */,
 				12BE02C226AC7C2800A97613 /* Core */,
 				12BE02BF26AC7B4700A97613 /* Common */,
 				12BE02BA26AB13CA00A97613 /* Models */,
@@ -113,6 +116,14 @@
 				12BE02C526AC882E00A97613 /* DataHandler.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		12BE02D126ADCBE400A97613 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				12BE02D226ADD43E00A97613 /* CharacterTableViewCell.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +207,7 @@
 				12BE02C826AC887100A97613 /* Util.swift in Sources */,
 				12BE02A726AB0D6200A97613 /* SceneDelegate.swift in Sources */,
 				12BE02BC26AB146100A97613 /* Image.swift in Sources */,
+				12BE02D326ADD43E00A97613 /* CharacterTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
