@@ -5,7 +5,8 @@ Creada con swift 5 y Xcode 13.
 ### IMPORTANTE:                      
 
 **El codigo de la app no tiene ni la publicKey ni la privateKey ya que es de uso personal. Sin ellas no te funcionará.
-Se tendra que generar una desde la [api de Marvel](https://developer.marvel.com/docs).**
+Se tendra que generar una desde la [api de Marvel](https://developer.marvel.com/docs).
+Tienes que colocarlo en Common/Constants**
 
 ### Descripción del proyecto
 
