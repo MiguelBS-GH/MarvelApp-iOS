@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private var characters: [Character] = []
+    private var character: Character?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,18 @@ class ViewController: UIViewController {
         self.characterTableView.register(cell, forCellReuseIdentifier: "CharacterTableViewCell")
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destino = segue.destination as? CharacterDetailViewController {
+            destino.name = character?.name
+            destino.imageURL = character?.thumbnail?.getImage()
+            if let description = character?.description, description != "" {
+                destino.characterDescription = character?.description
+            }
+        }
+        
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource {
@@ -65,7 +78,6 @@ extension ViewController: UITableViewDataSource {
         let character = characters[indexPath.row]
         cell.characterNameLabel.text = character.name
         if let image = character.thumbnail?.getImage() {
-            print("dentro")
             cell.characterImageView.load(url: image)
         }
         
@@ -81,21 +93,13 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     
-}
-
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async {
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self.image = image
-                    }
-                }
-            }
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        character = characters[indexPath.row]
+        performSegue(withIdentifier: "GoCharacterDetailVC", sender: self)
         
     }
+    
 }
 
 
